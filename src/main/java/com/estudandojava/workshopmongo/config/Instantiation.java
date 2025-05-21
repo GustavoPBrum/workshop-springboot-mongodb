@@ -11,7 +11,7 @@ import com.estudandojava.workshopmongo.repository.UserRepository;
 
 @Configuration
 public class Instantiation implements CommandLineRunner {
-
+ 
 	@Autowired
 	private UserRepository userRepository;
 	

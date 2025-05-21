@@ -1,6 +1,7 @@
 package com.estudandojava.workshopmongo.resources;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.estudandojava.workshopmongo.domain.User;
+import com.estudandojava.workshopmongo.dto.UserDTO;
 import com.estudandojava.workshopmongo.services.UserService;
 
 @RestController
@@ -19,9 +21,11 @@ public class UserResource {
 	private UserService service;
 	
 	@GetMapping
-	public ResponseEntity<List<User>> findAll() {		
+	public ResponseEntity<List<UserDTO>> findAll() {		
 		List<User> list = service.findAll();
+		// Transformar em um listDto usando expressao lambda
+		List<UserDTO> listDto = list.stream().map(x -> new UserDTO(x)).collect(Collectors.toList());
 		// Ok eh um metodo que instancia o ResponseEntity ja com o codigo de resposta HTTP que a resposta ocorreu com sucesso
-		return ResponseEntity.ok().body(list);
+		return ResponseEntity.ok().body(listDto);
 	}
 }
