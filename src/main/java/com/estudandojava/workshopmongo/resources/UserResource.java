@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.estudandojava.workshopmongo.domain.Post;
 import com.estudandojava.workshopmongo.domain.User;
 import com.estudandojava.workshopmongo.dto.UserDTO;
 import com.estudandojava.workshopmongo.services.UserService;
@@ -61,4 +62,12 @@ public class UserResource {
 		
 		return ResponseEntity.noContent().build();
 	}	
+	
+	@GetMapping(value = "/{id}/posts")
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+		User obj = service.findById(id);  // Pegamos o usuario pelo id
+		
+		// Mesmo com o carregamento tardio (lazy = true), pelo getPosts no endpoint, ele ira carregar os posts do usuario
+		return ResponseEntity.ok().body(obj.getPosts());  
+	}
 }
