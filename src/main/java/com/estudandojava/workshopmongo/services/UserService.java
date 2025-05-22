@@ -36,6 +36,7 @@ public class UserService {
 		repo.deleteById(id);;
 	}
 	
+	// Esse obj como argumento sao os dados enviados na requisicao, nao tendo *VINCULO* com o BD
 	public User update(User obj) {
 		User newObj = findById(obj.getId()); // obj original do banco de dados que sera atualizado
 		
@@ -43,6 +44,7 @@ public class UserService {
 		return repo.save(newObj);
 	}
 	
+	// Metodo auxiliar que usamos para salvar no newObj (original do BD) os dados do *obj* (dados enviados na requisicao)
 	private void updateData(User newObj, User obj) {
 		newObj.setName(obj.getName());
 		newObj.setEmail(obj.getEmail());
