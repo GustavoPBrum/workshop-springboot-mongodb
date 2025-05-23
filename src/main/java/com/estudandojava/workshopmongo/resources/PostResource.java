@@ -25,6 +25,7 @@ public class PostResource {
 	    return ResponseEntity.ok().body(obj);
 	}
 	
+
 	@GetMapping
 	public ResponseEntity<List<Post>> findAll() {
 	    List<Post> list = service.findAll();

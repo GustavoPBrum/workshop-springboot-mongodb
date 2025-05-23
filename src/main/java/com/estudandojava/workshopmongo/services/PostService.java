@@ -1,11 +1,9 @@
 package com.estudandojava.workshopmongo.services;
-
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import com.estudandojava.workshopmongo.domain.Post;
 import com.estudandojava.workshopmongo.repository.PostRepository;
@@ -22,8 +20,7 @@ public class PostService {
 		// Retorna objeto ou lanca uma excecao
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto nao encontrado"));
 	}
-	
-	@GetMapping
+
 	public List<Post> findAll() {
 	    return repo.findAll();
 	}
