@@ -13,7 +13,7 @@ public class URL {
 		try {
 			return URLDecoder.decode(text, "ASCII");
 		} catch (UnsupportedEncodingException e) {
-			return "numdeu";
+			return "";
 		}
 	}
 	

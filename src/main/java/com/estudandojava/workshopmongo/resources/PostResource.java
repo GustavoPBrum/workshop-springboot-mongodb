@@ -28,11 +28,6 @@ public class PostResource {
 	    return ResponseEntity.ok().body(obj);
 	}
 	
-	@GetMapping
-	public ResponseEntity<List<Post>> findAll() {
-	    List<Post> list = service.findAll();
-	    return ResponseEntity.ok().body(list);
-	}
 	
 	@GetMapping(value = "/titlesearch")  // Se o 'text' nao for informado, sera inserido uma String vazia
 	public ResponseEntity<List<Post>> findByTitle(@RequestParam(value = "text", defaultValue = "") String text) {
