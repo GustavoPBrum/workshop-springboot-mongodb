@@ -103,3 +103,7 @@ O projeto explora diferentes formas de realizar consultas no MongoDB via Spring 
 Essas consultas são implementadas usando o modelo de Query do Spring Data MongoDB, aproveitando do banco orientado a documentos para facilitar a busca.
 
 ---
+
+### Sobre o Desenvolvedor
+
+Este projeto foi desenvolvido por [Gustavo Pereira Brum](https://www.linkedin.com/in/gustavo-pereira-brum-42671b241/), estudante de Engenharia de Software, entusiasta de Java e apaixonado por desenvolvimento backend.  
